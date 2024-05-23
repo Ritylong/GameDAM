@@ -14,7 +14,8 @@ public class SoundsControl : MonoBehaviour
 
     void Start()
     {
-       music = GetComponent<AudioSource>();
+        music = GetComponent<AudioSource>();
+
         MusicAwake();
         
 
@@ -69,6 +70,6 @@ public class SoundsControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }
