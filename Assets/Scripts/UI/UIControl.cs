@@ -11,27 +11,42 @@ public class UIControl : MonoBehaviour
     [SerializeField] Slider manaslider;
     [SerializeField] TextMeshProUGUI textheal;
     [SerializeField] TextMeshProUGUI textmana;
+    [SerializeField] TextMeshProUGUI textCoin;
+
+    
+    HealthPlayer playerHeal;
 
 
     [SerializeField] Image itemfram;
     [SerializeField] List<Sprite> itemsprites ;
+
+    private void Start()
+    {
+        playerHeal = FindAnyObjectByType<HealthPlayer>();
+    }
     private void Update()
     {
         UpDownHeal();
         ChangeItem();
+        UpDownMana();
+        Coin();
     }
 
     public void UpDownHeal()
     {
-        healslider.value = 99;
+        healslider.value =playerHeal.healthcanvas;
         textheal.text = healslider.value.ToString()+" HP";
     }
     public void UpDownMana()
     {
+        manaslider.value = playerHeal.Mana;
         textmana.text = manaslider.value.ToString()+" Mana";
-        manaslider.value = 49;
+       
     }
-  
+    public void Coin()
+    {
+        textCoin.text = playerHeal.coin.ToString();
+    }
   
 
     void ChangeItem()

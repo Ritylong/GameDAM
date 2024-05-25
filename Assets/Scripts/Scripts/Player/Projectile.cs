@@ -6,12 +6,16 @@ public class Projectile : MonoBehaviour
     private float direction;
     private bool hit;
     private float lifetime;
+  
+    
+    HealthPlayer healthPlayer;
 
     private Animator anim;
     private BoxCollider2D boxCollider;
 
     private void Awake()
     {
+        healthPlayer = FindAnyObjectByType<HealthPlayer>();
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
@@ -22,7 +26,7 @@ public class Projectile : MonoBehaviour
         transform.Translate(movementSpeed, 0, 0);
 
         lifetime += Time.deltaTime;
-        if (lifetime > 5) gameObject.SetActive(false);
+        if (lifetime > 3) gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,7 +36,7 @@ public class Projectile : MonoBehaviour
         anim.SetTrigger("explode");
 
         if (collision.tag == "Enemy")
-            collision.GetComponent<Health>().TakeDamage(1);
+            collision.GetComponent<Health>().TakeDamage(healthPlayer.playerDamage);
     }
     public void SetDirection(float _direction)
     {
