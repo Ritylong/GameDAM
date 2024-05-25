@@ -9,14 +9,16 @@ public class DontDestroy : MonoBehaviour
     [SerializeField] bool destroyOnScreen = true;
     void Start()
     {
-      if (!destroyOnScreen)
+        if (!destroyOnScreen)
         {
             DontDestroyOnLoad(this);
         }
         else
         {
             return;
-        }
-        
+        }   
     }
+        
+   
+
 }
