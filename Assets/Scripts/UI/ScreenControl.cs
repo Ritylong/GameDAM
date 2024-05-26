@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class ScreenControl: MonoBehaviour
 {
-
+    
+        
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(0);
@@ -16,5 +17,13 @@ public class ScreenControl: MonoBehaviour
         int Mapcurrent = SceneManager.GetActiveScene().buildIndex;
         int NextMap = Mapcurrent + 1;
         SceneManager.LoadScene(NextMap);
+    }
+ 
+    public void ResetScreen()
+    {
+        FindAnyObjectByType<UIControl>().playerDead = false;
+        int Mapcurrent = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(Mapcurrent);
+               
     }
 }

@@ -7,8 +7,16 @@ public class Spikes : MonoBehaviour
     GameObject player; Health Health;
     private void Update()
     {
-        player = GameObject.Find("Player");
-        Health = player.GetComponent<Health>();
+        if (!FindAnyObjectByType<UIControl>().playerDead)
+        {
+            player = GameObject.Find("Player");
+            Health = player.GetComponent<Health>();
+        }
+        else
+        {
+            return;
+        }
+       
      }
         
         private void OnTriggerEnter2D(Collider2D collision)

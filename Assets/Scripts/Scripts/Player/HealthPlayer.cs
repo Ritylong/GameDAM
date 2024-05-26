@@ -17,9 +17,16 @@ public class HealthPlayer : MonoBehaviour
 
     private void Update()
     {
-        player = GameObject.Find("Player");
-        Health = player.GetComponent<Health>();
-        this.health = Health.currentHealth;
+        if (!FindAnyObjectByType<UIControl>().playerDead)
+        {
+            player = GameObject.Find("Player");
+            Health = player.GetComponent<Health>();
+            this.health = Health.currentHealth;
+        } else
+        {
+            return;
+        }
+       
     }
    [SerializeField] private int mana = 100;
     public int Mana

@@ -20,6 +20,8 @@ public class UIControl : MonoBehaviour
     [SerializeField] Image itemfram;
     [SerializeField] List<Sprite> itemsprites ;
 
+    public bool playerDead;
+
     private void Start()
     {
         playerHeal = FindAnyObjectByType<HealthPlayer>();
@@ -30,6 +32,13 @@ public class UIControl : MonoBehaviour
         ChangeItem();
         UpDownMana();
         Coin();
+        if (playerDead)
+        {
+            DeadMenu();
+        } else
+        {
+            //DeadMenuOff();
+        }
       
     }
 
@@ -56,12 +65,28 @@ public class UIControl : MonoBehaviour
         if (itemfram != null && itemsprites != null && itemsprites.Count > 0)
         {
             // Gán sprite đầu tiên từ danh sách vào Image component
-            itemfram.sprite = itemsprites[0];
+            itemfram.sprite = itemsprites[1];
         }
         else
         {
             Debug.LogError("Image component hoặc danh sách Sprite chưa được gán trong Inspector hoặc danh sách rỗng.");
         }
     }
+
+    public void DeadMenu()
+    {
+        GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.name == "DeadMenu")
+            {
+                obj.SetActive(true);
+                break;
+            }
+        }
+    }
+    
+    
 }
 
