@@ -45,6 +45,12 @@ public class Health : MonoBehaviour
                     component.enabled = false;
 
                 dead = true;
+                if (this.name == "Player")
+                {
+                    FindAnyObjectByType<UIControl>().playerDead = true;
+                }
+               
+
             }
         }
     }

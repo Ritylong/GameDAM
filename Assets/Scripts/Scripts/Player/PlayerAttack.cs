@@ -28,6 +28,7 @@ public class PlayerAttack : MonoBehaviour
            Skill();
 
         cooldownTimer += Time.deltaTime;
+        HealthSkill();
     }
 
     private void Attack()
@@ -54,5 +55,27 @@ public class PlayerAttack : MonoBehaviour
                 return i;
         }
         return 0;
+    }
+    public void HealthSkill()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject[] allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+
+            foreach (GameObject obj in allObjects)
+            {
+                if (obj.name == "ThongTin")
+                {
+                    if (obj.GetComponent<ThongTin>().healthSkill > 0)
+                    {
+                        player.GetComponent<Health>().currentHealth = player.GetComponent<Health>().currentHealth +20f;
+                        obj.GetComponent<ThongTin>().healthSkill--;
+                    }
+
+                }
+            }
+           
+        }
     }
 }

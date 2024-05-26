@@ -5,11 +5,12 @@ using UnityEngine;
 public class GameUI : MonoBehaviour
 {
     bool ispause = false;
+    bool isInfo = false;
     [SerializeField] GameObject pauseMenu;
-
+    [SerializeField] GameObject Info;
     private void Update()
     {
-       PauseGameButton();
+       PauseGameButton(); InfoCharButton();
     }
    
 
@@ -31,7 +32,35 @@ public class GameUI : MonoBehaviour
 
         }
     }
-   
+    void InfoCharButton()
+    {
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            isInfo = !isInfo;
+            if (isInfo)
+            {
+                InfoOn();
+
+            }
+            else
+            {
+              InfoOff();
+            }
+
+        }
+    }
+
+    public void InfoOn()
+    {
+        Info.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void InfoOff()
+    {
+        Info.SetActive(false);
+        Time.timeScale = 1f;
+    }
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
