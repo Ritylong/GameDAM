@@ -3,13 +3,12 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
-    [Header("Health")]
-    [SerializeField] public float startingHealth;
-    public float currentHealth { get; private set; }
+    public float health = 100f;
+    public float currentHealth;
     private Animator anim;
     private bool dead;
 
-    [Header("iFrames")]
+    
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
@@ -17,17 +16,18 @@ public class Health : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
     private bool invulnerable;
+    
 
     private void Awake()
     {
-        currentHealth = startingHealth;
+       currentHealth = health;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
     public void TakeDamage(float _damage)
     {
         if (invulnerable) return;
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, health);
 
         if (currentHealth > 0)
         {
@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
     }
     public void AddHealth(float _value)
     {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, health);
     }
     private IEnumerator Invunerability()
     {

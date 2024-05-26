@@ -30,11 +30,12 @@ public class UIControl : MonoBehaviour
         ChangeItem();
         UpDownMana();
         Coin();
+      
     }
 
     public void UpDownHeal()
     {
-        healslider.value =playerHeal.healthcanvas;
+        healslider.value =playerHeal.health;
         textheal.text = healslider.value.ToString()+" HP";
     }
     public void UpDownMana()
@@ -45,7 +46,7 @@ public class UIControl : MonoBehaviour
     }
     public void Coin()
     {
-        textCoin.text = playerHeal.coin.ToString();
+        textCoin.text = playerHeal.Coin.ToString();
     }
   
 

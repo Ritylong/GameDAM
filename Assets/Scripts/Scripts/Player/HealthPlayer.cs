@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class HealthPlayer : MonoBehaviour
 {
-    public float healthcanvas;
+    GameObject player; 
+    public float health;
     Health Health;
     public int playerDamage = 5;
-    public int coin = 100;
+    [SerializeField] private int coin;
     private void Start()
     {
-        Health = GetComponent<Health>();
      
+
     }
+
     private void Update()
     {
-        healthcanvas = Health.currentHealth;
+        player = GameObject.Find("Player");
+        Health = player.GetComponent<Health>();
+        this.health = Health.currentHealth;
     }
    [SerializeField] private int mana = 100;
     public int Mana
@@ -28,5 +32,10 @@ public class HealthPlayer : MonoBehaviour
         {
             mana = value;
         }
+    } 
+    public int Coin
+    {
+        get { return coin;}
+        set { coin = value; }
     }
 }
