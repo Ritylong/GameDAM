@@ -5,7 +5,7 @@ using UnityEngine;
 public class Music  : MonoBehaviour
 {
     // Start is called before the first frame update
-    private static Music instance;
+    public static Music instance;
     void Awake()
     {
         // Kiểm tra nếu đã có một instance khác của MusicManager tồn tại
