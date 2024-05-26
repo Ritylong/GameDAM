@@ -47,8 +47,6 @@ GameObject:
   - component: {fileID: 339728066529960372}
   - component: {fileID: 339728066529960375}
   - component: {fileID: 339728066529960373}
-  - component: {fileID: 9196861775916216255}
-  - component: {fileID: 4650903575333566526}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -284,38 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e26f534ea637349a0bc6f44b578ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  health: 100
   iFramesDuration: 1.5
   numberOfFlashes: 3
   components:
   - {fileID: 339728066529960372}
   - {fileID: 339728066529960374}
---- !u!114 &9196861775916216255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339728066529960365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4063b82847648e94b85c01f8a60287b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthcanvas: 0
-  playerDamage: 5
-  coin: 58
-  mana: 100
---- !u!114 &4650903575333566526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339728066529960365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5dea20a9065e724596e7d1f23870d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyOnScreen: 0
