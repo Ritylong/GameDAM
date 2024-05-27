@@ -26,4 +26,5 @@ public class ScreenControl: MonoBehaviour
                 SceneManager.LoadScene(Mapcurrent);
                
     }
+
 }
