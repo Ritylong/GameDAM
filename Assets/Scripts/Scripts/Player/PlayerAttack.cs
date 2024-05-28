@@ -39,12 +39,16 @@ public class PlayerAttack : MonoBehaviour
         fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
     private void Skill()
-    {
-        anim.SetTrigger("attack");
-        cooldownTimer = 0;             
-              fireballs[FindFireball()].transform.position = firePoint.position;
-              fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-        healthPlayer.Mana = healthPlayer.Mana - 2;
+    {  
+        if(healthPlayer.Mana > 2 )
+        {
+            anim.SetTrigger("attack");
+            cooldownTimer = 0;
+            fireballs[FindFireball()].transform.position = firePoint.position;
+            fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+            healthPlayer.Mana = healthPlayer.Mana - 2;
+        } else return;
+            
         
     }
     private int FindFireball()
