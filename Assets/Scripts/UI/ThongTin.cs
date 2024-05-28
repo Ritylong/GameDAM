@@ -19,7 +19,8 @@ public class ThongTin : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> itemprites;
 
     void Awake()
-    {
+    { 
+        this.gameObject.SetActive(false);
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
