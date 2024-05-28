@@ -8,8 +8,9 @@ public class PauseManager : MonoBehaviour
         public static PauseManager instance;
 
         void Awake()
-        {
-            if (instance != null && instance != this)
+    {
+        this.gameObject.SetActive(false);
+        if (instance != null && instance != this)
             {
                 Destroy(gameObject);
             }
