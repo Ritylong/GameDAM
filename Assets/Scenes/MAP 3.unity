@@ -345,6 +345,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 368.02
       objectReference: {fileID: 0}
+    - target: {fileID: 7063265336596861967, guid: a9cd27ff18bb4454181d2d9f2f4310ad, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 42.529907
+      objectReference: {fileID: 0}
     - target: {fileID: 7767122020250563054, guid: a9cd27ff18bb4454181d2d9f2f4310ad, type: 3}
       propertyPath: m_Camera
       value: 
@@ -35709,7 +35713,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1.65
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3713950458528919410, guid: 4e6d1d31d3b9ea0489a40c89ea242c45, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
