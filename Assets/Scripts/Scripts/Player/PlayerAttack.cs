@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -11,8 +12,11 @@ public class PlayerAttack : MonoBehaviour
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
 
+    Sounds sounds;
+
     private void Awake()
     {
+        sounds = FindObjectOfType<Sounds>();
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         healthPlayer = FindAnyObjectByType<HealthPlayer>();
@@ -25,14 +29,18 @@ public class PlayerAttack : MonoBehaviour
 
         cooldownTimer += Time.deltaTime;
         if (Input.GetMouseButton(1) && cooldownTimer > 0.25 && playerMovement.canAttack())
-           Skill();
-
+        {
+            Skill();
+            sounds.SoundAtk();
+        } 
         cooldownTimer += Time.deltaTime;
         HealthSkill();
+
     }
 
     private void Attack()
     {
+        sounds.SoundAtk();
         anim.SetTrigger("attack");
         cooldownTimer = 0;
         fireballs[FindFireball()].transform.position = firePoint.position;
@@ -42,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
     {  
         if(healthPlayer.Mana >= 2 )
         {
+          
             anim.SetTrigger("attack");
             cooldownTimer = 0;
             fireballs[FindFireball()].transform.position = firePoint.position;
