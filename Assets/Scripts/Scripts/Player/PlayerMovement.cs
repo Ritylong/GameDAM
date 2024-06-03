@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpCooldown;
     private float horizontalInput;
     
+    Sounds sound;
 
     private void Awake()
     {
+        sound = FindObjectOfType<Sounds>();
         //Grab references for rigidbody and animator from object
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -27,9 +30,18 @@ public class PlayerMovement : MonoBehaviour
 
         //Flip player when moving left-right
         if (horizontalInput > 0.01f)
+        {
             transform.localScale = Vector3.one;
+           
+        }
         else if (horizontalInput < -0.01f)
+        {
             transform.localScale = new Vector3(-1, 1, 1);
+            
+        }
+        else
+        
+           
 
         //Set animator parameters
         anim.SetBool("run", horizontalInput != 0);

@@ -7,8 +7,10 @@ public class CoinPickup : MonoBehaviour
 {
     // Start is called before the first frame update
     HealthPlayer healthPlayer;
+    Sounds sounds;  
     void Start()
     {
+        sounds = FindObjectOfType<Sounds>();
         healthPlayer = FindAnyObjectByType<HealthPlayer>();
     }
 
@@ -23,6 +25,7 @@ public class CoinPickup : MonoBehaviour
         {
             healthPlayer.Coin = healthPlayer.Coin + 1;
             Destroy(this.gameObject);
+            sounds.SoundECollect();
         }
         
     }
