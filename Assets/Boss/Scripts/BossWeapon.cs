@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossWeapon : MonoBehaviour
@@ -11,18 +12,27 @@ public class BossWeapon : MonoBehaviour
 	public float attackRange = 1f;
 	public LayerMask attackMask;
 
-	public void Attack()
+	GameObject player;
+	Health health;
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+        health = player.GetComponent<Health>();
+    }
+    public void Attack()
 	{
-		Vector3 pos = transform.position;
+       
+
+        Vector3 pos = transform.position;
 		pos += transform.right * attackOffset.x;
 		pos += transform.up * attackOffset.y;
 
 		Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
 		if (colInfo != null)
 		{
-			colInfo.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+			health.TakeDamage(attackDamage);
 		}
-	}
+    }
 
 	public void EnragedAttack()
 	{

@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Skill()
     {  
-        if(healthPlayer.Mana > 2 )
+        if(healthPlayer.Mana >= 2 )
         {
             anim.SetTrigger("attack");
             cooldownTimer = 0;

@@ -35,6 +35,9 @@ public class UIControl : MonoBehaviour
         if (playerDead)
         {
             DeadMenu();
+            healslider.value = playerHeal.health;
+            textheal.text = 0 + " HP";
+
         } else
         {
             //DeadMenuOff();
