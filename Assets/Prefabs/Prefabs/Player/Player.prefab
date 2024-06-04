@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 339728066529960372}
   - component: {fileID: 339728066529960375}
   - component: {fileID: 339728066529960373}
-  - component: {fileID: 8073749546670963050}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -290,19 +289,3 @@ MonoBehaviour:
   components:
   - {fileID: 339728066529960372}
   - {fileID: 339728066529960374}
---- !u!114 &8073749546670963050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339728066529960365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4063b82847648e94b85c01f8a60287b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  playerDamage: 50
-  coin: 0
-  mana: 100

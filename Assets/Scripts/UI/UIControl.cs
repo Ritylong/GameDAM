@@ -31,13 +31,13 @@ public class UIControl : MonoBehaviour
         UpDownHeal();
         ChangeItem();
         UpDownMana();
-        Coin();
+        UpCoin();
         if (playerDead)
         {
             DeadMenu();
             healslider.value = playerHeal.health;
             textheal.text = 0 + " HP";
-
+           
         } else
         {
             //DeadMenuOff();
@@ -56,7 +56,7 @@ public class UIControl : MonoBehaviour
         textmana.text = manaslider.value.ToString()+" Mana";
        
     }
-    public void Coin()
+    public void UpCoin()
     {
         textCoin.text = playerHeal.Coin.ToString();
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boss_Run : StateMachineBehaviour
@@ -8,14 +9,22 @@ public class Boss_Run : StateMachineBehaviour
 	public float speed = 2.5f;
 	public float attackRange = 3f;
 
+	
+
 	Transform player;
 	Rigidbody2D rb;
 	Boss boss;
+	
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+		if (FindAnyObjectByType<UIControl>().playerDead)
+		{
+			return;
+		}
 		player = GameObject.FindGameObjectWithTag("Player").transform;
+		
 		rb = animator.GetComponent<Rigidbody2D>();
 		boss = animator.GetComponent<Boss>();
 
