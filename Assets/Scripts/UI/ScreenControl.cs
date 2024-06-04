@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ScreenControl: MonoBehaviour
 {
     
-        HealthPlayer HealthPlayer;
+    HealthPlayer HealthPlayer;
     private void Start()
     {
         HealthPlayer = FindObjectOfType<HealthPlayer>();
@@ -27,10 +27,11 @@ public class ScreenControl: MonoBehaviour
     public void ResetScreen()
     {
         FindAnyObjectByType<UIControl>().playerDead = false;
-        int Mapcurrent = SceneManager.GetActiveScene().buildIndex;
-                SceneManager.LoadScene(Mapcurrent);
         HealthPlayer.Coin = 0;
         HealthPlayer.Mana = 100;
+        int Mapcurrent = SceneManager.GetActiveScene().buildIndex;
+                SceneManager.LoadScene(Mapcurrent);
+        
 
 
     }

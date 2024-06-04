@@ -10,7 +10,12 @@ public class Fire : MonoBehaviour
         if (!FindAnyObjectByType<UIControl>().playerDead)
         {
             player = GameObject.Find("Player");
-            Health = player.GetComponent<Health>();
+            if (player != null)
+            {
+                Health = player.GetComponent<Health>();
+            }
+
+
         }
         else
         {

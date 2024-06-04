@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
-    GameObject player; Health Health;
+   /* GameObject player; Health Health;
     private void Update()
     {
         if (!FindAnyObjectByType<UIControl>().playerDead)
@@ -26,6 +26,6 @@ public class Spikes : MonoBehaviour
             Health.TakeDamage(20f);
          }
 
-    }
+    }*/
 }
 
