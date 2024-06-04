@@ -23216,10 +23216,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 339728066529960368, guid: 9acc49d7ce5e1ab45a98f01a135b8b02, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 339728066529960371, guid: 9acc49d7ce5e1ab45a98f01a135b8b02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.72
@@ -23340,6 +23336,10 @@ PrefabInstance:
       propertyPath: fireballs.Array.data[19]
       value: 
       objectReference: {fileID: 1149054355}
+    - target: {fileID: 8073749546670963050, guid: 9acc49d7ce5e1ab45a98f01a135b8b02, type: 3}
+      propertyPath: playerDamage
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
