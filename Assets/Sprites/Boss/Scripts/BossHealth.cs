@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
-    public int health = 500;
+    public int health ;
     public GameObject deathEffect;
     public bool isInvulnerable = false;
     public string nextSceneName;
+   [SerializeField] GameObject finish;
+
+  
 
     public void TakeDamage(int damage)
     {
@@ -14,7 +17,7 @@ public class BossHealth : MonoBehaviour
 
         health -= damage;
 
-        if (health <= 25)
+        if (health <= 150)
         {
             GetComponent<Animator>().SetBool("IsEnraged", true);
         }
@@ -28,7 +31,10 @@ public class BossHealth : MonoBehaviour
     void Die()
     {
         Instantiate(deathEffect, transform.position, Quaternion.identity);
-        GameManager.instance.ChangeSceneAfterDelay(3f, nextSceneName);
+
+        //GameManager.instance.ChangeSceneAfterDelay(3f, nextSceneName);
+        finish.SetActive(true);
+
         Destroy(gameObject);
     }
 

@@ -9,7 +9,7 @@ public class Finish : MonoBehaviour
 {
     StorageHelper storageHelper;
     GameDataPlayed played;
-
+    public string nextSceneName;
 
     [SerializeField] GameObject highScore;
     [SerializeField] GameObject row;    
@@ -50,8 +50,8 @@ public class Finish : MonoBehaviour
                 rowInstance.SetActive(true);
             }
             highScore.SetActive(true);
-           
 
+            GameManager.instance.ChangeSceneAfterDelay(6f, nextSceneName);
         }
     }
 }
