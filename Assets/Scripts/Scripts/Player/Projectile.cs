@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.LogError("Error: " + e.Message);
+                Debug.Log("Error: " + e.Message);
             }
         }
 
