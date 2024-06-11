@@ -39,13 +39,13 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
             
         }
-        else
+        else { }
         
-           
-
-        //Set animator parameters
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", isGrounded());
+            //Set animator parameters
+            anim.SetBool("run", horizontalInput != 0);
+            anim.SetBool("grounded", isGrounded());
+        
+      
 
         //Wall jump logic
         if (wallJumpCooldown > 0.2f)

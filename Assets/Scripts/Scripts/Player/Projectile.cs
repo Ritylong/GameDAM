@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -36,9 +37,22 @@ public class Projectile : MonoBehaviour
         anim.SetTrigger("explode");
 
         if (collision.tag == "Enemy")
-            collision.GetComponent<Health>().TakeDamage(healthPlayer.playerDamage);
+        {
+            try
+            {
+                collision.GetComponent<Health>().TakeDamage(healthPlayer.playerDamage);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error: " + e.Message);
+            }
+        }
+
         if (collision.tag == "Boss")
+        {
             collision.GetComponent<BossHealth>().TakeDamage(healthPlayer.playerDamage);
+        }
+          
 
     }
     public void SetDirection(float _direction)
